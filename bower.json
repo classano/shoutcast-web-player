@@ -1,0 +1,22 @@
+{
+  "name": "shoutcast-web-player",
+  "version": "0.0.1",
+  "homepage": "https://github.com/classano/shoutcast-web-player",
+  "authors": [
+    "Classano <claes@noren.me>"
+  ],
+  "description": "A HTML5 player to play shoutcast streams",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#~4.4.0",
+    "jquery": "~2.1.4"
+  }
+}
