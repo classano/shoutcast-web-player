@@ -3,10 +3,47 @@
 	<head>
 		<title>Shoutcast web player</title>
 		<meta charset="UTF-8" />
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="bower_components/font-awesome/css/font-awesome.min.css">
+		<script>
+		$(function(){
+			var thePlayer = new sWebPlayer();
+			$('#play').on('click',function(){
+				thePlayer.play();
+			});
+			$('#pause').on('click',function(){
+				thePlayer.pause();
+			});
+			thePlayer.playerID 			= $('#s-web-player')[0];
+			thePlayer.statusElement 	= $('#s-web-player-status');
+			thePlayer.play();
+		});
+		
+		sWebPlayer = (function(){
+		});
+			
+		sWebPlayer.prototype.play = function(){
+			this.playerID.play();
+			this.setPlayerStatus('<i class="fa fa-music fa-pulse"></i>');
+		};
+		sWebPlayer.prototype.pause = function(){
+			this.playerID.pause();
+			this.setPlayerStatus('<i class="fa fa-spinner fa-pulse"></i>');
+		};
+
+		sWebPlayer.prototype.setPlayerStatus = function(status){
+			this.statusElement.html(status);
+		};
+		</script>
 	</head>
 	<body>
-		<audio controls="controls" src="http://media1.kbkradio.se:8000/;&type=mp3"></audio>
-	</body>
-	</html>
+		<audio controls="controls" id="s-web-player" src="http://media1.kbkradio.se:8000/;&amp;type=mp3"></audio>
+		<p>
+			<span id="s-web-player-status">Loading...</span>
+		</p>
+		<p>
+			<span id="play"><i class="fa fa-play"></i></span>
+			<span id="pause"><i class="fa fa-pause"></i></span>
+		</p>
 	</body>
 </html>
